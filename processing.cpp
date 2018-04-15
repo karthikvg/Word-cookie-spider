@@ -43,9 +43,6 @@ void dump_it()
         {
             a[i][words[i][j]-'a']++;
         }
-       // for(int j=0;j<26;j++)
-         //   cout<<a[i][j]<<" ";
-        //cout<<endl;
     }
 }
 void printer(int* temp)
@@ -109,6 +106,7 @@ void preprocess()
 
 int main()
 {
+    //do not touch this unless you want to regenerate the wordlist
    // preprocess();
     ios_base::sync_with_stdio(0);
     cin.tie(0);cout.tie(0);
