@@ -35,13 +35,13 @@ vector<string > parse_it()
     in.close();
     return v;
 }
-void dump_it(vector<string >&vs)
+void dump_it()
 {
-    for(int i=0;i<vs.size();i++)
+    for(int i=0;i<words.size();i++)
     {
-        for(int j=0;j<vs[i].size();j++)
+        for(int j=0;j<words[i].size();j++)
         {
-            a[i][vs[i][j]-'a']++;
+            a[i][words[i][j]-'a']++;
         }
        // for(int j=0;j<26;j++)
          //   cout<<a[i][j]<<" ";
@@ -69,7 +69,7 @@ void printer(int* temp)
     sort(answers.begin(),answers.end(),[](string& a,string& b){return a.size()>b.size();});
     for(int i=0;i<answers.size();i++)
         if(answers[i].size()>1)
-            cout<<answers[i]<<endl;
+            cout<<"\t"<<i+1<<". "<<answers[i]<<endl;
 }
 
 void answering(string& s)
@@ -114,13 +114,15 @@ int main()
     cin.tie(0);cout.tie(0);
     words=parse_it();
 
-    dump_it(words);
-    cout<<"preprocessing has been completed\n"<<endl;
+    dump_it();
+    cout<<"preprocessing has been completed\n"<<endl<<endl;
     while(true)
     {
+        cout<<"enter a word to generate all its anagrams :"<<endl;
         string s;
         cin>>s;
         answering(s);
+        cout<<endl;
     }
     return 0;
 }
