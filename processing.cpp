@@ -7,20 +7,21 @@ vector<string> words;
 
 bool is_string(string& s)
 {
+    /*
+      verifies if the given string is composed of
+      alphabets or not and changes all characters
+      to lower-case
+    */
     for(int i=0;i<s.size();i++)
         if(islower(s[i]))
             continue;
-        else if(isupper(s[i]))
-            {
-                s[i]=tolower(s[i]);
-                continue;
-            }
         else
             return false;
     return true;
 }
 vector<string > parse_it()
 {
+    /*all the string will be parsed out*/
     int counter=0;
     string s;
     vector<string> v;
@@ -37,6 +38,8 @@ vector<string > parse_it()
 }
 void dump_it()
 {
+    /*hashes will be generated to compare the anagrams*/
+
     for(int i=0;i<words.size();i++)
     {
         for(int j=0;j<words[i].size();j++)
@@ -47,6 +50,7 @@ void dump_it()
 }
 void printer(int* temp)
 {
+    /*prints all the anagrams(special anagrams) for given input*/
     vector<string >answers;
     for(int i=0;i<words.size();i++)
     {
@@ -71,6 +75,9 @@ void printer(int* temp)
 
 void answering(string& s)
 {
+    /*for given input it generated
+      frequence count array and
+      pass it printer function*/
     int temp[26]={0};
     for(int i=0;i<s.size();i++)
         temp[s[i]-'a']++;
@@ -102,12 +109,14 @@ void preprocess()
     out.open("new_words.txt");
     for(int i=0;i<vs.size();i++)
         out<<vs[i]<<endl;
+    cout<<"have been terminated from given file as \
+            they may exits duplicates or non alphabet characters"<<endl;
+    out.close();
 }
-
 int main()
 {
     //do not touch this unless you want to regenerate the wordlist
-   // preprocess();
+    //preprocess();
     ios_base::sync_with_stdio(0);
     cin.tie(0);cout.tie(0);
     words=parse_it();
