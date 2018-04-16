@@ -7,11 +7,9 @@ vector<string> words;
 
 bool is_string(string& s)
 {
-    /*
-      verifies if the given string is composed of
-      alphabets or not and changes all characters
-      to lower-case
-    */
+    /*verifies if the given string is
+      composed of alphabets or not  */
+
     for(int i=0;i<s.size();i++)
         if(islower(s[i]))
             continue;
@@ -51,6 +49,7 @@ void dump_it()
 void printer(int* temp)
 {
     /*prints all the anagrams(special anagrams) for given input*/
+
     vector<string >answers;
     for(int i=0;i<words.size();i++)
     {
@@ -76,15 +75,18 @@ void printer(int* temp)
 void answering(string& s)
 {
     /*for given input it generated
-      frequence count array and
-      pass it printer function*/
+      frequency count array and
+      passes it printer function*/
     int temp[26]={0};
     for(int i=0;i<s.size();i++)
-        temp[s[i]-'a']++;
+        temp[tolower(s[i])-'a']++;
     printer(temp);
 }
 void preprocess()
 {
+    /* it will preprocess the wordlist.txt and
+       generates a new_wordlist.txt which contains
+        valid strings for performing the queries*/
     ifstream in;
     in.open("wordlist.txt");
     vector<string >vs;
